@@ -1,0 +1,14 @@
+# Compiled Java Files
+*.class
+out/
+
+#Operating Sysyem Files
+.DS_Store
+Thumbs.db
+
+#Log Files
+*.log
+
+#IntelliJ Files
+.idea/
+*.iml
