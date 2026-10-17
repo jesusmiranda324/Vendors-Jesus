@@ -48,4 +48,14 @@ public class VendorTest {
         assertTrue(vendor.hasItem("Chips"));
         assertFalse(vendor.hasItem("Candy"));
     }
+    @Test
+    void multipleVendorsTest(){
+        Vendor vendor2 = new Vendor(10, 20);
+        assertEquals(10,vendor.getItemStock("Candy"));
+        assertEquals(10,vendor2.getItemStock("Candy"));
+        vendor2.restockExistingVendorItem("Candy",10);
+        assertEquals(20, vendor2.getItemStock("Candy"));
+        assertEquals(10,vendor.getItemStock("Candy"));
+
+    }
 }

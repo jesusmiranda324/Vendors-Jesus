@@ -6,7 +6,7 @@ import java.util.HashMap;
  * well as the current balance of money that has been deposited into the machine.
  */
 class Vendor {
-    private static HashMap<String, Item> Stock = new HashMap<String,Item>();
+    private HashMap<String, Item> Stock = new HashMap<String,Item>();
     private double balance;
 
     Vendor(int numCandy, int numGum) {
@@ -106,6 +106,17 @@ class Vendor {
             }
         }
     }
+    /**
+     * Prints the inventory of Vendor using a loop to go through each item in the HashMap;
+     **/
+    void printInventory(){
+        System.out.println("Vendor Inventory:");
+        for(String name : Stock.keySet()){
+            Item item = Stock.get(name);
+            System.out.println(name + ": Price: $" + item.price + ", Amount: " + item.stock);
+        }
+    }
+
 }
 
 class Examples {
