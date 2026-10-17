@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class VendorTest {
     private Vendor vendor;
@@ -41,5 +41,11 @@ public class VendorTest {
         assertEquals(25,vendor.getItemStock("Candy"));
         vendor.restockExistingVendorItemAndNewItems("Chips",3.25,5);
         assertEquals(5,vendor.getItemStock("Chips"));
+    }
+    @Test
+    void changeExistingNameOfItem(){
+        vendor.changeExistingNameOfItem("Candy", "Chips");
+        assertTrue(vendor.hasItem("Chips"));
+        assertFalse(vendor.hasItem("Candy"));
     }
 }

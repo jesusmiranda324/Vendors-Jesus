@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.HashMap;
 
 
@@ -93,6 +92,18 @@ class Vendor {
             return Stock.get(name).stock;
         }else{
             return 0;
+        }
+    }
+    /**
+     * Checks to see if new name is taken already,if not, changes the name of
+     * an existing item to that new name
+     **/
+    void changeExistingNameOfItem(String currentName, String newName){
+        if(hasItem(currentName)) {
+            if(!hasItem(newName)) {
+              Item item = Stock.remove(currentName);
+              Stock.put(newName,item);
+            }
         }
     }
 }
