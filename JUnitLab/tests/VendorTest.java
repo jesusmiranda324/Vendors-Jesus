@@ -13,8 +13,13 @@ public class VendorTest {
     @Test
     void addMoneyTest(){
         vendor.addMoney(5.0);
-        assertEquals(5.0, vendor.getBalance()
-        );
+        assertEquals(5.0, vendor.getBalance(),0.001);
     }
 
+    @Test
+    void buyItemTest(){
+        vendor.addMoney(1.25);
+        vendor.select("Candy");
+        assertEquals(0.0, vendor.getBalance(),0.001);
+    }
 }
