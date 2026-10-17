@@ -75,6 +75,17 @@ class Vendor {
         }
     }
     /**
+     *Restocks items by checking to see if item exists, if it does, it increases amount, if not,
+     * adds it to stock
+     **/
+    void restockExistingVendorItemAndNewItems(String name,double price, int amount){
+        if(hasItem(name)) {
+            Stock.get(name).restock(amount);
+        }else {
+            Stock.put(name, new Item(price,amount));
+        }
+    }
+    /**
      *Checks current stock for a certain item
      **/
     int getItemStock(String name){
