@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.HashMap;
 
 
@@ -61,6 +62,27 @@ class Vendor {
      **/
     boolean hasItem(String name){
         return Stock.containsKey(name);
+    }
+    /**
+     *Restocks items by checking to see if item exists, if it does, it increases amount, if not,
+     * it returns error message
+     **/
+    void restockExistingVendorItem(String name, int amount){
+        if(hasItem(name)) {
+          Stock.get(name).restock(amount);
+        }else {
+            System.out.println("Error: Items does not exist");
+        }
+    }
+    /**
+     *Checks current stock for a certain item
+     **/
+    int getItemStock(String name){
+        if(hasItem(name)){
+            return Stock.get(name).stock;
+        }else{
+            return 0;
+        }
     }
 }
 

@@ -30,4 +30,9 @@ public class VendorTest {
         assertFalse(vendor.hasItem("Candy"));
         assertFalse(vendor.hasItem("Gum"));
     }
+    @Test
+    void restockExistingVendorItemTest(){
+        vendor.restockExistingVendorItem("Candy",10);
+        assertEquals(20, vendor.getItemStock("Candy"));
+    }
 }
