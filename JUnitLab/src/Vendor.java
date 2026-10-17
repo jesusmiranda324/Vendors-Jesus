@@ -49,7 +49,19 @@ class Vendor {
         }
         else System.out.println("Sorry, don't know that item");
     }
-
+    /**
+     *Empties the vendor's Inventory. Does not keep item names.
+     **/
+    void emptyInventory(){
+        Stock.clear();
+    }
+    /**
+     *Checks the vendor's Inventory to see if item exists
+     * @param name The name of the item to check ("Candy" or "Gum")
+     **/
+    boolean hasItem(String name){
+        return Stock.containsKey(name);
+    }
 }
 
 class Examples {
